@@ -57,3 +57,7 @@ $route['home'] = 'home/index';
 $route['departments'] = 'home/departments';
 $route['faculty'] = 'home/faculty';
 $route['faculty-list'] = 'home/facultymem';
+
+$route['addcampus'] ='CampusesController/index';
+$route['addcampus/submit'] ='CampusesController/submit';
+$route['campuses/edit/(:any)'] = 'CampusesController/edit/$1';

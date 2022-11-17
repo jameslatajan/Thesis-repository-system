@@ -23,37 +23,18 @@ class Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->database();
-		$this->load->helper('url');
+		$this->load->model('CampusesModel','cmodel');
 	}
 	public function index()
 	{
-		
+		$data['campus'] = $this->cmodel->getcampus();
 
-
-		if($this->input->post('addcampus')){
-			$cname = $this->input->post('campus_name');
-			$cdirector= $this->input->post('campus_director');
-			$ceit = $this->input->post('ceit_dean');
-			$cas = $this->input->post('cas_dean');
-			$cte = $this->input->post('cte_dean');
-			$cot = $this->input->post('cot_dean');
-			$q = $this->db->query("select * from campuses_tb where campus_name='".$cname."'");
-			$row = $q->num_rows();
-			if($row){
-				$data['error']="<h3 style='color:red'>This user already exists</h3>";
-			}else{
-				$q=$this->db->query("insert into campuses_tb values('$cname','$cdirector','$ceit','$cas','$cte','$cot')");
-				$data['error']="<h3 style='color:blue'>Your account created successfully</h3>";
-			}
-		}
 		$this->load->view('nav');
-		$this->load->view('campuses', @$data);
+		$this->load->view('campuses', $data);
 		$this->load->view('foot');
 	}
 	public function departments()
 	{
-		$this->load->helper('url');
 
 		$this->load->view('nav');
 		$this->load->view('Departments');
