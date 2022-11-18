@@ -1,19 +1,26 @@
 <?php
-class CampusesModel extends CI_Model {
-    public $campusname;
-    public $campusdirector;
-    public $ceitdean;
-    public $casdean;
-    public $ctedean;
-    public $cotdean;
+class CampusesModel extends CI_Model
+{
 
-    public function addcampus(){
-        $this->campusname       = $_POST['campus_name'];
-        $this->campusdirector   = $_POST['campus_director'];
-        $this->ceitdean         = $_POST['ceit_dean'];
-        $this->casdean          = $_POST['cas_dean'];
-        $this->ctedean          = $_POST['cte_dean'];
-        $this->cotdean          = $_POST['cot_dean'];
+    public function getcampus()
+    {
+        $archive  = 0;
+        $query = $this->db->get_where('campuses_tb', array('archive'=>$archive));
+        return $query->result();
+    }
+    public function insertcampus($data)
+    {
+        return $this->db->insert('campuses_tb', $data);
+    }
+    public function editcampus($id){
+        $query = $this->db->get_where('campuses_tb',['campus_id'=> $id]);
+        return $query->row_array();
+    }
+    public function updatecampus($data, $id){
+        $this->db->update('campuses_tb', $data, ['campus_id' => $id]);
+    }
+    public function archivecampus($id){
+        $this->db->query("UPDATE `campuses_tb` SET `archive` = '1' WHERE `campus_id`= $id");
     }
 
 }

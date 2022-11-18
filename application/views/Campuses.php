@@ -2,18 +2,31 @@
 <div class="row d-flex justify-content-center">
   <div class="col-8 ">
     <h1 class="title text-uppercase">Campuses</h1>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addcampus">Add Campus</button>
+    <a class="btn btn-success" href="<?= base_url('addcampus') ?>">
+      Add Campus
+    </a>
   </div>
 </div>
+
 <!-- content -->
+<?php foreach ($campus as $row): ?>
 <div class="row my-3 d-flex justify-content-center">
   <div class="col-8">
     <div class="card">
-      <h5 class="card-header text-uppercase">Surigao City</h5>
+      <h5 class="card-header text-uppercase">
+        <?php echo $row->campus_name ?>
+      </h5>
       <div class="card-body">
         <div class="row">
-          <div class="col-12">
-            <h6 class="text-uppercase">Campus Director: </h6>
+          <div class="col-6">
+            <h6 class="text-uppercase">Campus Director: <u>
+                <?php echo $row->campus_director ?>
+              </u>
+            </h6>
+          </div>
+          <div class="col-6 d-flex justify-content-end">
+            <a href="<?php echo base_url('campuses/edit/' . $row->campus_id) ?>" class="btn btn-primary mx-1">Edit</a>
+            <a href="<?php echo base_url('campuses/archive/' . $row->campus_id) ?>" class="btn btn-danger">Archive</a>
           </div>
         </div>
         <table class="table">
@@ -21,35 +34,44 @@
             <tr>
               <th scope="col text-uppercase">Department Name</th>
               <th scope="col text-uppercase">Dean</th>
-              <th scope="col text-uppercase" colspan="3">Option</th>
+              <th scope="col text-uppercase">Option</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
+              <td>CEIT</td>
               <td>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-info">View</button>
+                <?php echo $row->ceit_dean ?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('/ceit/' . $row->campus_id)?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
+              <td>CAS</td>
               <td>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-info">View</button>
+                <?php echo $row->cas_dean ?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('/cas/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
-              <td>Mark</td>
-              <td>Otto</td>
+              <td>CTE</td>
               <td>
-                <button type="button" class="btn btn-primary">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="button" class="btn btn-info">View</button>
+                <?php echo $row->cte_dean ?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('/cte/' . $row->campus_id) ?>" class="btn btn-info">View</a>
+              </td>
+            </tr>
+            <tr>
+              <td>COT</td>
+              <td>
+                <?php echo $row->cot_dean ?>
+              </td>
+              <td>
+                <a href="<?php echo base_url('/cot/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
           </tbody>
@@ -58,11 +80,11 @@
     </div>
   </div>
 </div>
+<?php endforeach; ?>
 <!-- content -->
-
 <!-- modal -->
 <!-- form -->
-<form action="addcampus" method="post">
+<!-- <form action="<?= base_url('addcampus') ?>" method="post">
   <div class="modal fade" id="addcampus" tabindex="-1" aria-labelledby="addcampus" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -72,7 +94,7 @@
         </div>
         <div class="modal-body">
 
-          <div class="mb-3">
+          <div class="mb-3">  
             <label for="" class="form-label">Campus Name</label>
             <input type="text" name="campus_name" class="form-control text-uppercase" id="">
             <div>
@@ -115,13 +137,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" name="addcampus">Save changes</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
   </div>
-</form>
+</form> -->
 <!-- form -->
 <!-- modal -->
-
 <!-- campuses -->

@@ -1,0 +1,14 @@
+Instruction on installing
+
+download composer install latest: 2.4.4
+https://getcomposer.org/
+
+download xampp 3.3 or up 
+https://www.apachefriends.org/
+
+download or clone the project, make sure the directory is in htdocs xampp location
+
+type command promt on the thesis repository system folder
+composer update
+
+then run xampp apache and mysql
