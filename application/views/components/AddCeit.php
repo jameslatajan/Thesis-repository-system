@@ -6,51 +6,41 @@
     <div class="card">
       <h5 class="card-header text-uppercase"></h5>
       <div class="card-body">
-        <form action="<?php echo base_url("addcampus/submit")?>" method="POST">
+        <form action="<?php echo base_url("/ceit/".$cid.'/addceit/'.$cid.'/submitceit')?>" method="POST">
+        <input type="hidden" name="campus_id" value="<?php echo $cid?>">
+        <input type="hidden" name="department" value="ceit">
           <div class="mb-3">
             <label for="" class="form-label">Campus Name</label>
-            <input type="text" name="campus_name" class="form-control text-uppercase" id="">
-            <small class="text-danger"><?php echo form_error('campus_name'); ?></small>
+            <input type="text" name="name" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('name'); ?></small>
           </div>
           <div class="mb-3">
-            <label for="" class="form-label">Campus Director</label>
-            <input type="text" name="campus_director" class="form-control text-uppercase" id="">
-           <small class="text-danger"><?php echo form_error('campus_director'); ?></small>
+            <label for="" class="form-label">Birth Date</label>
+            <input type="date" name="birth_date" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('birth_date'); ?></small>
           </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CEIT Dean</label>
-                <input type="text" name="ceit_dean" class="form-control text-uppercase" id="">
-                <small class="text-danger"><?php echo form_error('ceit_dean'); ?></small>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CAS Dean</label>
-                <input type="text" name="cas_dean" class="form-control text-uppercase" id="">
-                <small class="text-danger"><?php echo form_error('cas_dean'); ?></small>
-              </div>
-            </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Address</label>
+            <input type="text" name="address" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('address'); ?></small>
           </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CTE Dean</label>
-                <input type="text" name="cte_dean" class="form-control text-uppercase" id="">
-                <small class="text-danger"><?php echo form_error('cte_dean'); ?></small>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">COT Dean</label>
-                <input type="text" name="cot_dean" class="form-control text-uppercase text-uppercase " id="">
-                <small class="text-danger"><?php echo form_error('cot_dean'); ?></small>
-              </div>
-            </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Contact No.</label>
+            <input type="text" name="contact_no" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('contact_no'); ?></small>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Position</label>
+            <input type="text" name="position" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('position'); ?></small>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Faculty Name</label>
+            <input type="text" name="faculty_name" class="form-control text-uppercase" id="">
+            <small class="text-danger"><?php echo form_error('faculty_name'); ?></small>
           </div>
           <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcampus">Submit</button>
-        <a class="btn btn-danger" href="<?= base_url()?>">Cancel </a>
+        <a class="btn btn-danger" href="<?= base_url()."ceit/".$cid?>">Cancel </a>
         </form>
       </div>
     </div>
