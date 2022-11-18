@@ -2,6 +2,8 @@
 class CeitModel extends CI_Model
 {
 
+    
+
     public function getceit($id)
     {
         $archive  = 0;

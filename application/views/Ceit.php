@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-center">
     <div class="col-10">
         <h3>College of Engineering and Information Technology</h3>
-        <a href="<?php echo base_url("ceit/addceit")?>" class="btn btn-success">Add Faculty</a>
+        <a href="<?php echo current_url()."/addceit/".$cid?>" class="btn btn-success">Add Faculty</a>
     </div>
 </div>
 

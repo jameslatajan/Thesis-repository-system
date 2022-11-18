@@ -44,7 +44,7 @@
                 <?php echo $row->ceit_dean ?>
               </td>
               <td>
-                <a href="<?php echo base_url('/ceit/' . $row->campus_id) ?>" class="btn btn-info">View</a>
+                <a href="<?php echo base_url('/ceit/' . $row->campus_id)?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
