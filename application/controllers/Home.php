@@ -30,7 +30,7 @@ class Home extends CI_Controller
 		$data['campus'] = $this->cmodel->getcampus();
 
 		$this->load->view('nav');
-		$this->load->view('campuses', $data);
+		$this->load->view('Campuses', $data);
 		$this->load->view('foot');
 	}
 	public function departments()

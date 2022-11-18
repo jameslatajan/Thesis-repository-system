@@ -25,8 +25,8 @@
             </h6>
           </div>
           <div class="col-6 d-flex justify-content-end">
-            <a href="<?php echo base_url('campuses/edit/'.$row->campus_id)?>" class="btn btn-primary mx-1">Edit</a>
-            <a href="" class="btn btn-danger">Archive</a>
+            <a href="<?php echo base_url('campuses/edit/' . $row->campus_id) ?>" class="btn btn-primary mx-1">Edit</a>
+            <a href="<?php echo base_url('campuses/archive/' . $row->campus_id) ?>" class="btn btn-danger">Archive</a>
           </div>
         </div>
         <table class="table">
@@ -44,7 +44,7 @@
                 <?php echo $row->ceit_dean ?>
               </td>
               <td>
-                <button type="button" class="btn btn-info">View</button>
+                <a href="<?php echo base_url('/ceit/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
                 <?php echo $row->cas_dean ?>
               </td>
               <td>
-                <button type="button" class="btn btn-info">View</button>
+                <a href="<?php echo base_url('/cas/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
                 <?php echo $row->cte_dean ?>
               </td>
               <td>
-                <button type="button" class="btn btn-info">View</button>
+                <a href="<?php echo base_url('/cte/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                 <?php echo $row->cot_dean ?>
               </td>
               <td>
-                <button type="button" class="btn btn-info">View</button>
+                <a href="<?php echo base_url('/cot/' . $row->campus_id) ?>" class="btn btn-info">View</a>
               </td>
             </tr>
           </tbody>

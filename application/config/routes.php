@@ -61,3 +61,8 @@ $route['faculty-list'] = 'home/facultymem';
 $route['addcampus'] ='CampusesController/index';
 $route['addcampus/submit'] ='CampusesController/submit';
 $route['campuses/edit/(:any)'] = 'CampusesController/edit/$1';
+$route['campuses/update/(:any)'] = 'CampusesController/update/$1';
+$route['campuses/archive/(:any)'] = 'CampusesController/archive/$1';
+
+$route['ceit/(:any)'] = "CeitController/index/$1";
+$route['ceit/addceit'] = "CeitController/addceit";
