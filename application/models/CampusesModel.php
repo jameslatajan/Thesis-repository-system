@@ -14,7 +14,7 @@ class CampusesModel extends CI_Model
     }
     public function editcampus($id){
         $query = $this->db->get_where('campuses_tb',['campus_id'=> $id]);
-        return $query->row_array();
+        return $query->row();
     }
     public function updatecampus($data, $id){
         $this->db->update('campuses_tb', $data, ['campus_id' => $id]);
