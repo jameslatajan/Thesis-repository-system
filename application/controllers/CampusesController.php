@@ -47,7 +47,7 @@ class CampusesController extends CI_Controller
 		$data['campus'] = $this->cmodel->editcampus($id);
 
 		$this->load->view('includes/nav');
-		$this->load->view('components/campus/AddCampus', $data);
+		$this->load->view('components/campus/EditCampus', $data);
 		$this->load->view('includes/foot');
 	}
 
