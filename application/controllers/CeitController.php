@@ -8,10 +8,9 @@ class CeitController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('CeitModel','ceitmodel');
-        $this->load->model('CampusesModel','cmodel');
 	}
     public function index($id = null){
-       echo $id;
+       return $id;
     }
 
     public function getceit($id){
@@ -22,9 +21,45 @@ class CeitController extends CI_Controller
         $this->load->view('foot');
     }
     public function addceit($id){
+        $data['cid'] = $id;
+
         $this->load->view('nav');
-        $this->load->view('components/AddCeit');
+        $this->load->view('components/AddCeit', $data);
         $this->load->view('foot');  
+    }
+    public function submitceit(){
+
+        $cid = $this->input->post('campus_id');
+        if ($this->input->server('REQUEST_METHOD') === 'POST') {
+			$this->form_validation->set_rules('name', 'Name', 'required');
+			$this->form_validation->set_rules('birth_date', 'Birth date', 'required');
+			$this->form_validation->set_rules('address', 'Address', 'required');
+			$this->form_validation->set_rules('contact_no', 'Contact', 'required');
+			$this->form_validation->set_rules('position', 'Position', 'required');
+			$this->form_validation->set_rules('faculty_name', 'Faculty Name', 'required');
+
+			if ($this->form_validation->run()) {
+				$data = [
+                    'campus_id'=> $this->input->post('campus_id'),
+                    'department'=> $this->input->post('department'),
+					'name' => $this->input->post('name'),
+					'birth_date' => $this->input->post('birth_date'),
+					'address' => $this->input->post('address'),
+					'contact_no' => $this->input->post('contact_no'),
+					'position' => $this->input->post('position'),
+					'faculty_name' => $this->input->post('faculty_name'),
+				];
+				$this->ceitmodel->insertceit($data);
+                redirect(base_url("/ceit/".$cid));
+				
+
+			} else {
+                // redirect(base_url("/ceit/".$cid.'/addceit/'.$cid));
+                // // redirect(current_url());
+                $this->addceit($cid);
+			}
+
+		}
     }
 
 }

@@ -66,3 +66,4 @@ $route['campuses/archive/(:any)'] = 'CampusesController/archive/$1';
 
 $route['ceit/(:any)'] = "CeitController/getceit/$1";
 $route['ceit/(:any)/addceit/(:any)'] = "CeitController/addceit/$1";
+$route['ceit/(:any)/addceit/(:any)/submitceit'] = "CeitController/submitceit";
