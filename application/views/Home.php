@@ -44,7 +44,7 @@
                 <?php echo $row->ceit_dean ?>
               </td>
               <td>
-                <a href="<?php echo base_url('/ceit/' . $row->campus_id)?>" class="btn btn-info">View</a>
+                <a href="<?php echo base_url("faculty/".$row->campus_name."/ceit")?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -53,7 +53,7 @@
                 <?php echo $row->cas_dean ?>
               </td>
               <td>
-                <a href="<?php echo base_url('/cas/' . $row->campus_id) ?>" class="btn btn-info">View</a>
+                <a href="<?php echo base_url("faculty/".$row->campus_name."/cas") ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -62,7 +62,7 @@
                 <?php echo $row->cte_dean ?>
               </td>
               <td>
-                <a href="<?php echo base_url('/cte/' . $row->campus_id) ?>" class="btn btn-info">View</a>
+                <a href="<?php echo base_url("faculty/".$row->campus_name."/cte") ?>" class="btn btn-info">View</a>
               </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                 <?php echo $row->cot_dean ?>
               </td>
               <td>
-                <a href="<?php echo base_url('/cot/' . $row->campus_id) ?>" class="btn btn-info">View</a>
+                <a href="<?php echo base_url("faculty/".$row->campus_name."/cot") ?>" class="btn btn-info">View</a>
               </td>
             </tr>
           </tbody>
@@ -81,68 +81,5 @@
   </div>
 </div>
 <?php endforeach; ?>
-<!-- content -->
-<!-- modal -->
-<!-- form -->
-<!-- <form action="<?= base_url('addcampus') ?>" method="post">
-  <div class="modal fade" id="addcampus" tabindex="-1" aria-labelledby="addcampus" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
 
-          <div class="mb-3">  
-            <label for="" class="form-label">Campus Name</label>
-            <input type="text" name="campus_name" class="form-control text-uppercase" id="">
-            <div>
-              <?php echo @$error; ?>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="" class="form-label">Campus Director</label>
-            <input type="text" name="campus_director" class="form-control text-uppercase" id="">
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CEIT Dean</label>
-                <input type="text" name="ceit_dean" class="form-control text-uppercase" id="">
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CAS Dean</label>
-                <input type="text" name="cas_dean" class="form-control text-uppercase" id="">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">CTE Dean</label>
-                <input type="text" name="cte_dean	" class="form-control text-uppercase" id="">
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">COT Dean</label>
-                <input type="text" name="cot_dean" class="form-control text-uppercase text-uppercase " id="">
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</form> -->
-<!-- form -->
-<!-- modal -->
 <!-- campuses -->

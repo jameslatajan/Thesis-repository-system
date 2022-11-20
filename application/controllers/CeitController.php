@@ -7,10 +7,10 @@ class CeitController extends CI_Controller
     public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('CeitModel','ceitmodel');
+		$this->load->model('CeitModel','ceitm');
 	}
     public function index($id){
-        $data['ceit'] = $this->ceitmodel->getceit($id);
+        $data['ceit'] = $this->ceitm->getceit($id);
         $data['cid'] = $id;
         $this->load->view('includes/nav');   
         $this->load->view('/Ceit', $data);
@@ -45,7 +45,7 @@ class CeitController extends CI_Controller
 					'position' => $this->input->post('position'),
 					'faculty_name' => strtoupper($this->input->post('faculty_name')) ,
 				];
-				$this->ceitmodel->insertceit($data);
+				$this->ceitm->insertceit($data);
                 redirect(base_url("/ceit/".$cid));
 				
 
@@ -59,8 +59,18 @@ class CeitController extends CI_Controller
     }
 
     public function archiveceit($cid, $fid){
-		$this->ceitmodel->archivecampus($fid);
+		$this->ceitm->archiveceit($fid);
 		redirect(base_url("ceit/".$cid));
 	}
+	public function editceit($id)
+	{
+		$data['ceit'] = $this->ceitm->editcampus($id);
+
+		$this->load->view('includes/nav');
+		$this->load->view('components/ceit/EditCeit', $data);
+		$this->load->view('includes/foot');
+	}
+
+
 
 }

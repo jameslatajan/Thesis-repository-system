@@ -1,12 +1,11 @@
-<!-- add ceit -->
 <div class="row my-3 d-flex justify-content-center">
   <div class="col-8">
     <div class="card">
       <h5 class="card-header text-uppercase"></h5>
       <div class="card-body">
-        <form action="<?php echo base_url("/ceit/" . $cid . '/addceit/' . $cid . '/submitceit') ?>" method="POST">
-          <input type="hidden" name="campus_id" value="<?php echo $cid ?>">
-          <input type="hidden" name="department" value="ceit">
+        <form action="<?php echo base_url("savefaculty/".$campus."/".$department) ?>" method="POST">
+          <input type="hidden" name="campus_name" value="<?php echo $campus ?>">
+          <input type="hidden" name="department" value="<?php echo $department ?>">
           <div class="row">
             <div class="col-12">
               <div class="mb-3">
@@ -53,12 +52,11 @@
             <input type="text" name="contact_no" class="form-control text-uppercase" id="">
             <small class="text-danger"><?php echo form_error('contact_no'); ?></small>
           </div>
-          <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcampus">Submit</button>
-          <a class="btn btn-danger" href="<?= base_url() . "ceit/" . $cid ?>">Cancel </a>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a class="btn btn-danger" href="<?= base_url("faculty/".$campus."/".$department)?>">Cancel </a>
         </form>
       </div>
     </div>
   </div>
 </div>
 </div>
-<!-- add ceit -->
