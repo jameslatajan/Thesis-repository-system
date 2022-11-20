@@ -10,9 +10,9 @@ class CampusesController extends CI_Controller
 	}
 	public function index()
 	{
-		$this->load->view('nav');
-		$this->load->view('components/AddCampus');
-		$this->load->view('foot');
+		$this->load->view('includes/nav');
+		$this->load->view('components/campus/AddCampus');
+		$this->load->view('includes/foot');
 	}
 	public function submit()
 	{
@@ -46,9 +46,9 @@ class CampusesController extends CI_Controller
 	{
 		$data['campus'] = $this->cmodel->editcampus($id);
 
-		$this->load->view('nav');
-		$this->load->view('components/EditCampus', $data);
-		$this->load->view('foot');
+		$this->load->view('includes/nav');
+		$this->load->view('components/campus/AddCampus', $data);
+		$this->load->view('includes/foot');
 	}
 
 	public function update($id)

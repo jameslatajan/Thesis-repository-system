@@ -49,14 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'HomeController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['home'] = 'home/index';
-$route['departments'] = 'home/departments';
-$route['faculty'] = 'home/faculty';
-$route['faculty-list'] = 'home/facultymem';
+$route['home'] = 'HomeController/index';
+$route['departments'] = 'HomeController/departments';
+$route['faculty'] = 'HomeController/faculty';
+$route['faculty-list'] = 'HomeController/facultymem';
 
 $route['addcampus'] ='CampusesController/index';
 $route['addcampus/submit'] ='CampusesController/submit';
@@ -65,5 +65,6 @@ $route['campuses/update/(:any)'] = 'CampusesController/update/$1';
 $route['campuses/archive/(:any)'] = 'CampusesController/archive/$1';
 
 $route['ceit/(:any)'] = "CeitController/getceit/$1";
-$route['ceit/(:any)/addceit/(:any)'] = "CeitController/addceit/$1";
+$route['addceit/(:any)'] = "CeitController/addceit/$1";
 $route['ceit/(:any)/addceit/(:any)/submitceit'] = "CeitController/submitceit";
+$route['ceit/(:any)/(:any)'] = "CeitController/archiveceit/$1/$2";

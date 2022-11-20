@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class HomeController extends CI_Controller
 {
 
 	/**
@@ -29,33 +29,33 @@ class Home extends CI_Controller
 	{
 		$data['campus'] = $this->cmodel->getcampus();
 
-		$this->load->view('nav');
-		$this->load->view('Campuses', $data);
-		$this->load->view('foot');
+		$this->load->view('includes/nav');
+		$this->load->view('Home', $data);
+		$this->load->view('includes/foot');
 	}
 	public function departments()
 	{
 
-		$this->load->view('nav');
+		$this->load->view('includes/nav');
 		$this->load->view('Departments');
-		$this->load->view('foot');
+		$this->load->view('includes/foot');
 	}
 	public function faculty()
 	{
 		$this->load->helper('url');
 
-		$this->load->view('nav');
+		$this->load->view('includes/nav');
 		$this->load->view('Faculty');
-		$this->load->view('foot');
+		$this->load->view('includes/foot');
 	}
 	public function facultymem()
 	{
 
 		$this->load->helper('url');
 
-		$this->load->view('nav');
+		$this->load->view('includes/nav');
 		$this->load->view('FacultyMember');
-		$this->load->view('foot');
+		$this->load->view('includes/foot');
 	}
 
 }
