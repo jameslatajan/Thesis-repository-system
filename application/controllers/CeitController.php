@@ -13,7 +13,7 @@ class CeitController extends CI_Controller
         $data['ceit'] = $this->ceitmodel->getceit($id);
         $data['cid'] = $id;
         $this->load->view('includes/nav');   
-        $this->load->view('components/ceit/Ceit', $data);
+        $this->load->view('/Ceit', $data);
         $this->load->view('includes/foot');
     }
     public function addceit($id){

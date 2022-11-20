@@ -13,5 +13,12 @@ class CeitModel extends CI_Model
     public function archivecampus($id){
         $this->db->query("UPDATE `faculty_tb` SET `archive` = '1' WHERE `faculty_id`= $id");
     }
+    public function editcampus($id){
+        $query = $this->db->get_where('campuses_tb',['campus_id'=> $id]);
+        return $query->row_array();
+    }
+    public function updatecampus($data, $id){
+        $this->db->update('campuses_tb', $data, ['campus_id' => $id]);
+    }
 
 }
