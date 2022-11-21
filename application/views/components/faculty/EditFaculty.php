@@ -54,7 +54,7 @@
             <small class="text-danger"><?php echo form_error('contact_no'); ?></small>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <a class="btn btn-danger" href="<?php echo base_url('faculty/'.$faculty->campus_name.'/'. $faculty->department)?>">Cancel </a>
+          <a class="btn btn-danger" href="<?php echo base_url('showfaculty/'.$faculty->faculty_id)?>">Cancel </a>
         </form>
       </div>
     </div>

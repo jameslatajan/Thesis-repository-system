@@ -70,3 +70,7 @@ $route['savefaculty/(:any)/(:any)'] = "FacultyController/savefaculty/$1/$2";
 $route['archivefaculty/(:any)/(:any)/(:any)'] = "FacultyController/archivefaculty/$1/$2/$3";
 $route['editfaculty/(:any)'] = 'FacultyController/editfaculty/$1';
 $route['updatefaculty/(:any)'] = 'FacultyController/updatefaculty/$1';
+$route['showfaculty/(:any)'] = 'FacultyController/showfaculty/$1';
+
+$route['addfile/(:any)'] = 'DocumentController/addfile/$1';
+$route['savefile'] = 'DocumentController/insertfile';

@@ -15,7 +15,7 @@ class FacultyModel extends CI_Model
     {
         $this->db->query("UPDATE `faculty_tb` SET `archive` = '1' WHERE `faculty_id`= $id");
     }
-    public function editfaculty($id)
+    public function editfacultybyid($id)
     {
         $query = $this->db->get_where('faculty_tb', ['faculty_id' => $id]);
         return $query->row();
@@ -24,4 +24,5 @@ class FacultyModel extends CI_Model
     {
         $this->db->update('faculty_tb', $data, ['faculty_id' => $id]);
     }
+
 }

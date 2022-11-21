@@ -7,6 +7,7 @@ class FacultyController extends CI_Controller
     {
         parent::__construct();
 		$this->load->model('FacultyModel','fmodel');
+        $this->load->model('DocumentModel', 'dmodel');
     }
     public function index($campus, $department){
         
@@ -51,7 +52,6 @@ class FacultyController extends CI_Controller
 
     public function savefaculty(){
 
-
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('birth_date', 'Birth date', 'required');
@@ -93,7 +93,7 @@ class FacultyController extends CI_Controller
     }
     public function editfaculty($id)
 	{
-		$data['faculty'] = $this->fmodel->editfaculty($id);
+		$data['faculty'] = $this->fmodel->editfacultybyid($id);
 
 		$this->load->view('includes/nav');
 		$this->load->view('components/faculty/EditFaculty', $data);
@@ -132,6 +132,16 @@ class FacultyController extends CI_Controller
         }
     }
 
+    public function showfaculty($id){
 
+        //retrieving files
+        $data['files'] = $this->dmodel->getfiles($id);
+        $data['faculty'] = $this->fmodel->editfacultybyid($id);
+
+        $this->load->view('includes/nav');   
+        $this->load->view('components/faculty/ShowFaculty', $data);
+        $this->load->view('components/documents/ShowDocuments', $data);
+        $this->load->view('includes/foot');
+    }
 
 }

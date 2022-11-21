@@ -25,8 +25,8 @@
                                 <td><?php echo $row->faculty_name ?></td>
                                 <td><?php echo $row->position ?></td>
                                 <td>
-                                    <a href="" class="btn btn-info">Show</a>
-                                    <a href="<?php echo base_url('editfaculty/'.$row->faculty_id)?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url('showfaculty/'.$row->faculty_id)?>" class="btn btn-info">Show</a>
+                                    <!-- <a href="<?php echo base_url('editfaculty/'.$row->faculty_id)?>" class="btn btn-primary">Edit</a> -->
                                     <a href="<?php echo base_url('archivefaculty/'.$campus."/".$department.'/'.$row->faculty_id)?>" class="btn btn-danger">Archive</a>
                                 </td>
                             </tr>
