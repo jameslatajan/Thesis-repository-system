@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // $routes['testupload']= 'testupload/index';
-$routes['upload']= 'testupload/upload';
+// $routes['upload']= 'testupload/upload';
 
 $route['home'] = 'HomeController/index';
 $route['departments'] = 'HomeController/departments';
@@ -78,4 +78,5 @@ $route['showfaculty/(:any)'] = 'FacultyController/showfaculty/$1';
 $route['addfile/(:any)'] = 'DocumentController/addfile/$1';
 $route['addfile/insertfile/(:any)'] = 'DocumentController/insertfile/$1';
 $route['download/(:any)'] = 'DocumentController/downloadfile/$1';
-
+$route['editfile/(:any)'] = 'DocumentController/editfile/$1';
+$route['updatefile/(:any)'] = 'DocumentController/updatefile/$1';
