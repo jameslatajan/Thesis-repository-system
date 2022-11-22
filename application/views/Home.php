@@ -1,13 +1,13 @@
 <!-- campuses -->
 <div class="row d-flex justify-content-center">
-  <div class="col-11">
+  <div class="col-12">
     <div class="title">
-      <div class="row">
-        <div class="col">
+      <div class="row justify-content-center">
+        <div class="col-2">
           <h1 class="title">Campuses</h1>
         </div>
       </div>
-      <div class="row">
+      <div class="row mx-5">
         <div class="col-7">
           <a class="btn btn-success" href="<?= base_url('addcampus') ?>">Add Campus</a>
         </div>
