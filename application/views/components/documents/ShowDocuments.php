@@ -10,6 +10,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">Title</th>
                             <th scope="col">File Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Date Issued</th>
@@ -20,6 +21,7 @@
 
                         <?php foreach($files as $row):?>
                         <tr>
+                            <td><?php echo $row->title?></td>
                             <td><?php echo $row->file?></td>
                             <td><?php echo $row->author?></td>
                             <td><?php echo $row->issue_date?></td>

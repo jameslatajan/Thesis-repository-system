@@ -79,9 +79,8 @@ class DocumentController extends CI_Controller
     }
     public function updatefile($id)
     {
-
+        
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
-
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('author', 'Author', 'required');
             $this->form_validation->set_rules('abstract', 'Abstract', 'required');
@@ -91,42 +90,46 @@ class DocumentController extends CI_Controller
 
             if ($this->form_validation->run()) {
 
-                $config['upload_path']          = './uploads/documents';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $old_file = $this->input->post('old_file');
+                $new_file = $_FILES['file']['name'];
 
-                $this->load->library('upload', $config);
+                if ($new_file == TRUE) {
+                    $update_file = $_FILES['file']['name'];
+                    $config['upload_path']          = './uploads/documents';
+                    $config['allowed_types']        = 'gif|jpg|png';
 
-                if (!$this->upload->do_upload('file')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    print_r($error);
-                } else {
-                    $path =  $this->input->post('filepath');
-                    delete_files($path, TRUE);
+                    $this->load->library('upload', $config);
 
-                    $file_data = $this->upload->data();
-                    $capsule = array(
-                        // 'faculty_id' => $this->input->post('faculty_id'),
-                        // 'campus_name' => $this->input->post('campus_name'),
-                        // 'department' => $this->input->post('department'),
-                        // 'faculty_name' => $this->input->post('faculty_name'),
-                        'title' => $this->input->post('title'),
-                        'author' => $this->input->post('author'),
-                        'abstract' => $this->input->post('abstract'),
-                        'issue_date' => $this->input->post('issue_date'),
-                        'file' => $file_data['file_name'],
-                    );
-                    $this->dmodel->updatefile($capsule, $id);
-                    redirect(base_url("showfaculty/" . $fid));
+
+                    if ($this->upload->do_upload('file')) {
+                        if (file_exists("./uploads/documents/" . $old_file)) {
+                            unlink("./uploads/documents/" . $old_file);
+                        }
+                    }
+                    else{
+                        $update_file = $old_file;
+                    }
+                    
                 }
+
+                $capsule = [
+                    // 'faculty_id' => $this->input->post('faculty_id'),
+                    // 'campus_name' => $this->input->post('campus_name'),
+                    // 'department' => $this->input->post('department'),
+                    // 'faculty_name' => $this->input->post('faculty_name'),
+                    'title' => $this->input->post('title'),
+                    'author' => $this->input->post('author'),
+                    'abstract' => $this->input->post('abstract'),
+                    'issue_date' => $this->input->post('issue_date'),
+                    'file' => $update_file,
+                ];
+                 $this->dmodel->updatefile($capsule, $id);
+                 redirect(base_url("showfaculty/" . $fid));
+
             } else {
-                // redirect(base_url("/ceit/".$cid.'/addceit/'.$cid));
-                // // redirect(current_url());
-                $this->addfile($id);
-                // echo 'ok';
+                return $this->editfile($id);
             }
         }
-
-        print_r($_FILES);
     }
 
     public function downloadfile($id)

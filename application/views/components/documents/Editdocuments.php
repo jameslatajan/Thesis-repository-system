@@ -2,11 +2,12 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url() ?>updatefile/<?php echo $file->file_id ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('editfile/updatefile/'.$file->file_id) ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="faculty_id" value="<?php echo $file->faculty_id ?>">
                     <input type="hidden" name="campus_name" value="<?php echo $file->campus_name ?>">
                     <input type="hidden" name="department" value="<?php echo $file->department ?>">
                     <input type="hidden" name="faculty_name" value="<?php echo $file->faculty_name ?>">
+                    <input type="hidden" name="old_file" value="<?php echo $file->file?>">
                     <input type="hidden" name="filepath" value="<?php echo $filepath?>">
 
                     <div class="mb-3">
@@ -34,7 +35,7 @@
                         <label class="form-label" for="customFile">Insert File Here</label>
                         <input type="file" class="form-control" id="customFile" name="file"/>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Upadate</button>
                     <a href="<?php echo base_url('showfaculty/'.$file->faculty_id ) ?>" class="btn btn-danger">Cancel</a>
                 </form>
             </div>
