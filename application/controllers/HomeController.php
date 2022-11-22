@@ -33,29 +33,4 @@ class HomeController extends CI_Controller
 		$this->load->view('Home', $data);
 		$this->load->view('includes/foot');
 	}
-	public function departments()
-	{
-
-		$this->load->view('includes/nav');
-		$this->load->view('Departments');
-		$this->load->view('includes/foot');
-	}
-	public function faculty()
-	{
-		$this->load->helper('url');
-
-		$this->load->view('includes/nav');
-		$this->load->view('Faculty');
-		$this->load->view('includes/foot');
-	}
-	public function facultymem()
-	{
-
-		$this->load->helper('url');
-
-		$this->load->view('includes/nav');
-		$this->load->view('FacultyMember');
-		$this->load->view('includes/foot');
-	}
-
 }

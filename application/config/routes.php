@@ -53,6 +53,9 @@ $route['default_controller'] = 'HomeController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// $routes['testupload']= 'testupload/index';
+// $routes['upload']= 'testupload/upload';
+
 $route['home'] = 'HomeController/index';
 $route['departments'] = 'HomeController/departments';
 $route['faculty'] = 'HomeController/faculty';
@@ -67,9 +70,13 @@ $route['campuses/archive/(:any)'] = 'CampusesController/archive/$1';
 $route['faculty/(:any)/(:any)'] = "FacultyController/index/$1/$2";
 $route['addfaculty/(:any)/(:any)'] = "FacultyController/addfaculty/$1/$2";
 $route['savefaculty/(:any)/(:any)'] = "FacultyController/savefaculty/$1/$2";
-$route['archiveceit/(:any)/(:any)'] = "CeitController/savetfaculty/$1/$2";
+$route['archivefaculty/(:any)/(:any)/(:any)'] = "FacultyController/archivefaculty/$1/$2/$3";
+$route['editfaculty/(:any)'] = 'FacultyController/editfaculty/$1';
+$route['updatefaculty/(:any)'] = 'FacultyController/updatefaculty/$1';
+$route['showfaculty/(:any)'] = 'FacultyController/showfaculty/$1';
 
-// $route['ceit/(:any)'] = "CeitController/index/$1";
-// $route['addceit/(:any)'] = "CeitController/addceit/$1";
-// $route['ceit/(:any)/addceit/(:any)/submitceit'] = "CeitController/submitceit";
-// $route['ceit/(:any)/(:any)'] = "CeitController/archiveceit/$1/$2";
+$route['addfile/(:any)'] = 'DocumentController/addfile/$1';
+$route['addfile/insertfile/(:any)'] = 'DocumentController/insertfile/$1';
+$route['download/(:any)'] = 'DocumentController/downloadfile/$1';
+$route['editfile/(:any)'] = 'DocumentController/editfile/$1';
+$route['editfile/updatefile/(:any)'] = 'DocumentController/updatefile/$1';
