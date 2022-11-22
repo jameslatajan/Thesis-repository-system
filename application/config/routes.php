@@ -80,3 +80,4 @@ $route['addfile/insertfile/(:any)'] = 'DocumentController/insertfile/$1';
 $route['download/(:any)'] = 'DocumentController/downloadfile/$1';
 $route['editfile/(:any)'] = 'DocumentController/editfile/$1';
 $route['editfile/updatefile/(:any)'] = 'DocumentController/updatefile/$1';
+$route['deletefile/(:any)'] = 'DocumentController/deletefile/$1';

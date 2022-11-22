@@ -2,3 +2,7 @@ body {
    background:#000; 
    color:#FFF; 
 }
+
+.edit_button{
+   text-align: right;
+}

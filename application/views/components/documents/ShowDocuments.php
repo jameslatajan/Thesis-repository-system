@@ -28,7 +28,7 @@
                             <td>
                                 <a href="<?php echo base_url('download/'.$row->file_id)?>" class="btn btn-primary">Download</a>
                                 <a href="<?php echo base_url('editfile/'.$row->file_id)?>" class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-primary">Delete</a>
+                                <a href="<?php echo base_url('deletefile/'.$row->file_id)?>" class="btn btn-primary">Delete</a>
                             </td>
                         </tr>
                         <?php endforeach?>

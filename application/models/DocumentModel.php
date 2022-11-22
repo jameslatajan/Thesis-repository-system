@@ -31,4 +31,13 @@ class DocumentModel extends CI_Model
         $query = $this->db->get_where('files_tb', array('file_id' => $id));
         return $query->row_array();
     }
+    public function checkfile($id)
+    {
+        $query = $this->db->get_where('files_tb', array('file_id' => $id));
+        return $query->row_array();
+    }
+    public function deletefile($id)
+    {
+        return $this->db->delete('files_tb', ['file_id' => $id]);
+    }
 }

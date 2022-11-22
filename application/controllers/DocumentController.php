@@ -79,7 +79,7 @@ class DocumentController extends CI_Controller
     }
     public function updatefile($id)
     {
-        
+
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('author', 'Author', 'required');
@@ -105,11 +105,9 @@ class DocumentController extends CI_Controller
                         if (file_exists("./uploads/documents/" . $old_file)) {
                             unlink("./uploads/documents/" . $old_file);
                         }
-                    }
-                    else{
+                    } else {
                         $update_file = $old_file;
                     }
-                    
                 }
 
                 $capsule = [
@@ -123,9 +121,8 @@ class DocumentController extends CI_Controller
                     'issue_date' => $this->input->post('issue_date'),
                     'file' => $update_file,
                 ];
-                 $this->dmodel->updatefile($capsule, $id);
-                 redirect(base_url("showfaculty/" . $fid));
-
+                $this->dmodel->updatefile($capsule, $id);
+                redirect(base_url("showfaculty/" . $fid));
             } else {
                 return $this->editfile($id);
             }
@@ -134,9 +131,35 @@ class DocumentController extends CI_Controller
 
     public function downloadfile($id)
     {
+
         $fileinfo = $this->dmodel->downloadfile($id);
-        $file = './uploads/documents/' . $fileinfo['file'];
-        echo $file;
-        force_download($file, NULL);
+        if ($fileinfo == TRUE) {
+            $file = './uploads/documents/' . $fileinfo['file'];
+            
+            force_download($file, NULL);
+            
+        }else{
+            print_r("file not found");
+        }
+
+
+
+    }
+    public function deletefile($id)
+    {
+        
+        if ($this->dmodel->checkfile($id)) {
+            $fileinfo = $this->dmodel->checkfile($id);
+            // print_r($fileinfo);
+            $file = './uploads/documents/' . $fileinfo['file'];
+            if(file_exists($file)){
+                unlink($file);  
+            }else{
+                print_r("file not found");
+            }
+            $this->dmodel->deletefile($id);
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        
     }
 }
