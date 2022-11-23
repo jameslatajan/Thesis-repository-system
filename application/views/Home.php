@@ -1,11 +1,15 @@
 <!-- campuses -->
 <div class="card">
   <div class="card-body d-flex">
-    <div class="col-9 d-flex">
-      <h4 class="title ">Campuses</h4>
-      <a class="btn btn-success ms-2" href="<?= base_url('addcampus') ?>">
-        Add Campus
-      </a>
+    <div class="col-7 d-flex">
+      <h4 class="title">Campuses</h4>
+    </div>
+    <div class="col-2 d-flex justify-content-end">
+    <button class="btn btn-success me-2 " type="submit">
+        <a href="<?= base_url('addcampus') ?>" class="btn-add">
+          Add Campus
+        </a>
+      </button>
     </div>
     <div class="col-3">
       <form class="d-flex justify-content-end" role="search">
@@ -66,7 +70,7 @@
               </tr>
               <tr>
                 <td>CTE</td>
-                <td >
+                <td>
                   <?php echo $row->cte_dean ?>
                 </td>
                 <td class="td-department">
