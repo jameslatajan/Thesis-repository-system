@@ -6,3 +6,7 @@ body {
 .edit_button{
    text-align: right;
 }
+
+.btn-info{
+  color: white;
+}
