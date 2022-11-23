@@ -1,4 +1,17 @@
-body { 
-   background:#000; 
-   color:#FFF; 
+body{
+  overflow-x: hidden;
+}
+
+.navbar-dark{
+  background-color: #29784F;
+}
+
+.card {
+  border-radius: 0px !important;
+}
+.btn{
+  border-radius: 0px !important;
+}
+.td-department{
+  text-align: right;
 }
