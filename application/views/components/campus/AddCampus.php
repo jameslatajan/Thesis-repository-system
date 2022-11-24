@@ -56,9 +56,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 d-grid">
             <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcampus">Submit</button>
-          </div>
         </form>
       </div>
     </div>

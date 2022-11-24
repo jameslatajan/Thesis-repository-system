@@ -7,9 +7,17 @@ class CampusesController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('CampusesModel', 'cmodel');
+		$this->load->library('session');
 	}
 	public function index()
 	{
+		$data['campus'] = $this->cmodel->getcampus();
+
+		$this->load->view('includes/nav');
+		$this->load->view('Home', $data);
+		$this->load->view('includes/foot');
+	}
+	public function addcampus(){
 		$this->load->view('includes/nav');
 		$this->load->view('components/campus/AddCampus');
 		$this->load->view('includes/foot');
@@ -34,12 +42,11 @@ class CampusesController extends CI_Controller
 					'cot_dean' => $this->input->post('cot_dean'),
 				];
 				$this->cmodel->insertcampus($data);
+				$this->session->set_flashdata('alert-success', 'Succesfully Added');
 				redirect(base_url());
-
 			} else {
 				$this->index();
 			}
-
 		}
 	}
 	public function edit($id)
@@ -72,18 +79,18 @@ class CampusesController extends CI_Controller
 					'cot_dean' => $this->input->post('cot_dean'),
 				];
 				$this->cmodel->updatecampus($data, $id);
+				$this->session->set_flashdata('alert-primary', 'Successfully Updated');
 				redirect(base_url());
-			}else{
+			} else {
 				$this->edit($id);
 			}
 		}
 	}
 
-	public function archive($id){
+	public function archive($id)
+	{
 		$this->cmodel->archivecampus($id);
+		$this->session->set_flashdata('alert-danger', 'Successfully Archived');
 		redirect(base_url());
 	}
-
-
-
 }

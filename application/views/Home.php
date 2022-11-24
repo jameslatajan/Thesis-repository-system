@@ -1,3 +1,21 @@
+<div class="row">
+  <div class="col-12">
+  <?php if($this->session->flashdata('alert-success')):?>
+    <div class="alert alert-success" role="alert">
+      <?= $this->session->flashdata('alert-success');?>
+    </div>
+    <?php elseif($this->session->flashdata('alert-danger')):?>
+      <div class="alert alert-danger" role="alert">
+      <?= $this->session->flashdata('alert-danger');?>
+    </div>
+    <?php elseif($this->session->flashdata('alert-primary')):?>
+      <div class="alert alert-primary" role="alert">
+      <?= $this->session->flashdata('alert-primary');?>
+    </div>
+    <?php endif?>
+  </div>
+</div>
+
 <!-- campuses -->
 <div class="card">
   <div class="card-body d-flex">
@@ -5,7 +23,7 @@
       <h4 class="title">Campuses</h4>
     </div>
     <div class="col-2 d-flex justify-content-end">
-    <button class="btn btn-success me-2 " type="submit">
+      <button class="btn btn-success me-2 " type="submit">
         <a href="<?= base_url('addcampus') ?>" class="btn-add">
           Add Campus
         </a>

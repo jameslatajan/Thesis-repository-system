@@ -15,12 +15,11 @@
 <div class="card">
     <div class="card-body d-flex">
         <div class="col-7 d-flex">
-
-            <h4><?php echo $title ?></h4>
+            <!-- <h4><?php echo $title ?></h4> -->
         </div>
         <div class="col-2 d-flex justify-content-end">
             <button class="btn btn-success me-2">
-                <a href="<?php echo base_url('addfaculty/' . $campus . "/" . $department) ?>" class="btn-add">Add Faculty</a>
+                <a href="<?php echo base_url() ?>" class="btn-add">Add Faculty</a>
             </button>
         </div>
         <div class="col-3">
@@ -54,7 +53,7 @@
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
                                     <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
+                                    <!-- <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a> -->
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -74,6 +74,7 @@ class FacultyController extends CI_Controller
 					'faculty_name' => strtoupper($this->input->post('faculty_name')) ,
 				];
 				$this->fmodel->insertfaculty($data);
+                $this->session->set_flashdata('alert-success', 'Succesfully Added');
                 redirect(base_url("faculty/".$campus_name.'/'.$department));
 				
 
@@ -89,6 +90,7 @@ class FacultyController extends CI_Controller
     public function archivefaculty($campus, $department, $id){
 
         $this->fmodel->archivefaculty($id);
+        $this->session->set_flashdata('alert-danger', 'Successfully Archived');
 		redirect(base_url("faculty/".$campus.'/'.$department));
     }
     public function editfaculty($id)
@@ -110,9 +112,6 @@ class FacultyController extends CI_Controller
 			$this->form_validation->set_rules('position', 'Position', 'required');
 			$this->form_validation->set_rules('faculty_name', 'Faculty Name', 'required');
 
-            $campus_name = $this->input->post('campus_name');
-            $department = $this->input->post('department');
-
 			if ($this->form_validation->run()) {
 				$data = [
 					'name' => $this->input->post('name'),
@@ -123,9 +122,8 @@ class FacultyController extends CI_Controller
 					'faculty_name' => strtoupper($this->input->post('faculty_name')) ,
 				];
 				$this->fmodel->updatefaculty($data, $id);
-                redirect(base_url("faculty/".$campus_name.'/'.$department));
-				
-
+                $this->session->set_flashdata('alert-primary', 'Successfully Updated');
+                redirect(base_url("showfaculty/".$id));
 			} else {
                 $this->editfaculty($id);
 			}

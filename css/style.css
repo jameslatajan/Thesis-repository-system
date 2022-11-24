@@ -9,11 +9,13 @@ body{
 .card {
   border-radius: 0px !important;
 }
-.btn{
-  border-radius: 0px !important;
-}
+
 .td-department{
   text-align: right;
+}
+.btn{
+  border-radius: 0px !important;
+
 }
 .btn-success{
   background-color: #33ccbe !important; 
@@ -31,15 +33,12 @@ body{
   color: white;
   background-color: #2db2a6 !important;
 }
-.btn-view{
-
-}
-
 .btn-info{
   background-color: #3197ce !important;
   border: 0px !important;
   color: white !important;
 }
+
 .btn-info:hover{
   background-color: #2b84b4 !important;
   border: 0px !important;
@@ -49,6 +48,9 @@ body{
   background-color: #40a016 !important;
   border: 0px !important;
 }
+.btn-danger{
+  border: 0px !important;
+}
 
 .btn-primary:hover{
   background-color: #348012 !important;
@@ -56,4 +58,9 @@ body{
 }
 .form-control {
   border-radius: 0px !important;
+}
+
+.table-faculty{
+  width: 100% !important;
+  /* border: none !important; */
 }

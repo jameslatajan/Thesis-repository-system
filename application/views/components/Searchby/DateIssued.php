@@ -15,13 +15,14 @@
 <div class="card">
     <div class="card-body d-flex">
         <div class="col-7 d-flex">
-
-            <h4><?php echo $title ?></h4>
+            <h4>
+                <!-- <?php echo $title ?> -->
+            </h4>
         </div>
         <div class="col-2 d-flex justify-content-end">
-            <button class="btn btn-success me-2">
-                <a href="<?php echo base_url('addfaculty/' . $campus . "/" . $department) ?>" class="btn-add">Add Faculty</a>
-            </button>
+            <!-- <button class="btn btn-success me-2">
+                <a href="<?php echo base_url() ?>" class="btn-add">Add Faculty</a>
+            </button> -->
         </div>
         <div class="col-3">
             <form class="d-flex justify-content-end" role="search">
@@ -39,22 +40,24 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Faculty Name</th>
-                            <th scope="col">Position</th>
+                            <th scope="col">Issued Date</th>
+                            <th scope="col">Author</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">File</th>
                             <th scope="col" colspan="2">Option</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($faculty as $row) : ?>
+                        <?php foreach ($issued as $row) : ?>
                             <tr>
-                                <td><?php echo $row->name ?></td>
-                                <td><?php echo $row->faculty_name ?></td>
-                                <td><?php echo $row->position ?></td>
+                                <td><?php echo $row->issue_date ?></td>
+                                <td><?php echo $row->author ?></td>
+                                <td><?php echo $row->title ?></td>
+                                <td><?php echo $row->file ?></td>
                                 <td>
-                                    <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
-                                    <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
+                                    <a href="<?php echo base_url('download/' . $row->file_id) ?>" class="btn btn-primary">Download</a>
+                                    <a href="<?php echo base_url('editfile/' . $row->file_id) ?>" class="btn btn-info">Edit</a>
+                                    <a href="<?php echo base_url('deletefile/' . $row->file_id) ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -20,17 +20,14 @@ class HomeController extends CI_Controller
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model('CampusesModel','cmodel');
-	}
-	public function index()
-	{
-		$data['campus'] = $this->cmodel->getcampus();
+	// public function __construct()
+	// {
+	// 	parent::__construct();
+	// 	$this->load->model('CampusesModel','cmodel');
+	// 	$this->load->library('session');
+	// }
+	// public function index()
+	// {
 
-		$this->load->view('includes/nav');
-		$this->load->view('Home', $data);
-		$this->load->view('includes/foot');
-	}
+	// }
 }

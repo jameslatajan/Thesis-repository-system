@@ -49,19 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'HomeController';
+$route['default_controller'] = 'CampusesController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-// $routes['testupload']= 'testupload/index';
-// $routes['upload']= 'testupload/upload';
-
-$route['home'] = 'HomeController/index';
-$route['departments'] = 'HomeController/departments';
-$route['faculty'] = 'HomeController/faculty';
-$route['faculty-list'] = 'HomeController/facultymem';
-
-$route['addcampus'] ='CampusesController/index';
+$route['home'] = 'CampusesController/index';
+$route['addcampus'] ='CampusesController/addcampus';
 $route['addcampus/submit'] ='CampusesController/submit';
 $route['campuses/edit/(:any)'] = 'CampusesController/edit/$1';
 $route['campuses/update/(:any)'] = 'CampusesController/update/$1';
@@ -80,3 +73,9 @@ $route['addfile/insertfile/(:any)'] = 'DocumentController/insertfile/$1';
 $route['download/(:any)'] = 'DocumentController/downloadfile/$1';
 $route['editfile/(:any)'] = 'DocumentController/editfile/$1';
 $route['editfile/updatefile/(:any)'] = 'DocumentController/updatefile/$1';
+$route['deletefile/(:any)'] = 'DocumentController/deletefile/$1';
+
+//search by
+$route['search/author'] = 'SortController/searchbyauthor';
+$route['search/faculty'] = 'SortController/searchbyfaculty';
+$route['search/dateissued'] = 'SortController/searchdateissued';

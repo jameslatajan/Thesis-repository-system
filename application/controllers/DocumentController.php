@@ -9,6 +9,7 @@ class DocumentController extends CI_Controller
         $this->load->model('DocumentModel', 'dmodel');
         $this->load->helper('download');
         $this->load->helper("file");
+        $this->load->helper('directory');
     }
     public function addfile($id)
     {
@@ -35,9 +36,9 @@ class DocumentController extends CI_Controller
                 $this->load->library('upload', $config);
 
                 if (!$this->upload->do_upload('file')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    print_r($error);
-                    echo "1";
+                    $error = $this->upload->display_errors('<p class="my-0">', '</p>');
+                    $this->session->set_flashdata('alert-file', $error);
+                    $this->addfile($id);
                 } else {
                     $file_data = $this->upload->data();
                     $capsule = array(
@@ -53,17 +54,15 @@ class DocumentController extends CI_Controller
                     );
                     $this->dmodel->insertfile($capsule);
                     redirect(base_url("showfaculty/" . $id));
-                    echo "success";
                 }
             } else {
                 // redirect(base_url("/ceit/".$cid.'/addceit/'.$cid));
                 // // redirect(current_url());
+
                 $this->addfile($id);
                 // echo 'ok';
             }
         }
-
-        print_r($_FILES);
     }
     public function editfile($id)
     {
@@ -79,7 +78,7 @@ class DocumentController extends CI_Controller
     }
     public function updatefile($id)
     {
-        
+
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('author', 'Author', 'required');
@@ -105,11 +104,9 @@ class DocumentController extends CI_Controller
                         if (file_exists("./uploads/documents/" . $old_file)) {
                             unlink("./uploads/documents/" . $old_file);
                         }
-                    }
-                    else{
+                    } else {
                         $update_file = $old_file;
                     }
-                    
                 }
 
                 $capsule = [
@@ -123,9 +120,8 @@ class DocumentController extends CI_Controller
                     'issue_date' => $this->input->post('issue_date'),
                     'file' => $update_file,
                 ];
-                 $this->dmodel->updatefile($capsule, $id);
-                 redirect(base_url("showfaculty/" . $fid));
-
+                $this->dmodel->updatefile($capsule, $id);
+                redirect(base_url("showfaculty/" . $fid));
             } else {
                 return $this->editfile($id);
             }
@@ -136,7 +132,25 @@ class DocumentController extends CI_Controller
     {
         $fileinfo = $this->dmodel->downloadfile($id);
         $file = './uploads/documents/' . $fileinfo['file'];
-        echo $file;
         force_download($file, NULL);
+
+        // if (file_exists("./uploads/documents/" . $file)) {
+        //     force_download($file, NULL);
+        // }
+
+    }
+    public function deletefile($id)
+    {
+        $fileinfo = $this->dmodel->deletefile($id);
+        $map = directory_map('./Thesis-repository-system/uploads/documents/');
+        $file = $fileinfo['file'];
+        if (file_exists($map[0] )) {
+            unlink($map[0]);
+        }else{
+            print_r("error");
+            print_r(unlink($map[0]));
+        }
+
+        
     }
 }
