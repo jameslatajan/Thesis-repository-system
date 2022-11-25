@@ -31,7 +31,7 @@ class DocumentController extends CI_Controller
             if ($this->form_validation->run()) {
 
                 $config['upload_path']          = './uploads/documents';
-                $config['allowed_types']        = 'gif|jpg|png';
+                $config['allowed_types']        = 'gif|jpg|png|pdf|doc';
 
                 $this->load->library('upload', $config);
 

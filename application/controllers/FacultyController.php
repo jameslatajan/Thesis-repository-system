@@ -71,7 +71,7 @@ class FacultyController extends CI_Controller
 					'address' => $this->input->post('address'),
 					'contact_no' => $this->input->post('contact_no'),
 					'position' => $this->input->post('position'),
-					'faculty_name' => strtoupper($this->input->post('faculty_name')) ,
+					'faculty_name' => $this->input->post('faculty_name') ,
 				];
 				$this->fmodel->insertfaculty($data);
                 $this->session->set_flashdata('alert-success', 'Succesfully Added');

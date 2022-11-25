@@ -79,3 +79,7 @@ $route['deletefile/(:any)'] = 'DocumentController/deletefile/$1';
 $route['search/author'] = 'SortController/searchbyauthor';
 $route['search/faculty'] = 'SortController/searchbyfaculty';
 $route['search/dateissued'] = 'SortController/searchdateissued';
+
+//archive
+$route['archive/campus'] = 'ArchiveController/campus';
+$route['archive/faculty'] = 'ArchiveController/faculty';

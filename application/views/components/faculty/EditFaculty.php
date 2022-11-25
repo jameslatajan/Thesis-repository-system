@@ -6,7 +6,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-6">
-            <h5 class="">Edit Documents</h5>
+            <h5 class="">Edit Faculty Member</h5>
           </div>
           <div class="col-6 d-flex justify-content-end">
           <a class="btn btn-danger" href="<?php echo base_url('showfaculty/' . $faculty->faculty_id) ?>">Cancel </a>
@@ -63,7 +63,7 @@
             <input type="text" name="contact_no" class="form-control " id="" value="<?php echo $faculty->contact_no ?>">
             <small class="text-danger"><?php echo form_error('contact_no'); ?></small>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Update</button>
           
         </form>
       </div>

@@ -12,18 +12,17 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">File Name</th>
                             <th scope="col">Author</th>
                             <th scope="col">Date Issued</th>
-                            <th scope="col" colspan="3">Option</th>
+                            <th scope="col">Option</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php foreach ($files as $row) : ?>
                             <tr>
                                 <td><?php echo $row->title ?></td>
