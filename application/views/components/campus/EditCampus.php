@@ -15,7 +15,6 @@
         </div>
       </div>
 
-
       <div class="card-body">
         <form action="<?php echo base_url("campuses/update/" . $campus->campus_id) ?>" method="POST">
           <div class="mb-3">

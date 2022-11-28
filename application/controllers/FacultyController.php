@@ -71,7 +71,7 @@ class FacultyController extends CI_Controller
 					'address' => $this->input->post('address'),
 					'contact_no' => $this->input->post('contact_no'),
 					'position' => $this->input->post('position'),
-					'faculty_name' => strtoupper($this->input->post('faculty_name')) ,
+					'faculty_name' => $this->input->post('faculty_name') ,
 				];
 				$this->fmodel->insertfaculty($data);
                 $this->session->set_flashdata('alert-success', 'Succesfully Added');
@@ -87,11 +87,11 @@ class FacultyController extends CI_Controller
 
     }
 
-    public function archivefaculty($campus, $department, $id){
+    public function archivefaculty($id){
 
         $this->fmodel->archivefaculty($id);
         $this->session->set_flashdata('alert-danger', 'Successfully Archived');
-		redirect(base_url("faculty/".$campus.'/'.$department));
+		redirect($_SERVER['HTTP_REFERER']);
     }
     public function editfaculty($id)
 	{
@@ -103,7 +103,6 @@ class FacultyController extends CI_Controller
 	}
     public function updatefaculty($id){
         
-
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
 			$this->form_validation->set_rules('name', 'Name', 'required');
 			$this->form_validation->set_rules('birth_date', 'Birth date', 'required');
@@ -135,6 +134,7 @@ class FacultyController extends CI_Controller
         //retrieving files
         $data['files'] = $this->dmodel->getfiles($id);
         $data['faculty'] = $this->fmodel->editfacultybyid($id);
+
 
         $this->load->view('includes/nav');   
         $this->load->view('components/faculty/ShowFaculty', $data);

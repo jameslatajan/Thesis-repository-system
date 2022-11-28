@@ -22,18 +22,12 @@
     <div class="col-7 d-flex">
       <h4 class="title">Campuses</h4>
     </div>
-    <div class="col-2 d-flex justify-content-end">
+    <div class="col-5 d-flex justify-content-end">
       <button class="btn btn-success me-2 " type="submit">
         <a href="<?= base_url('addcampus') ?>" class="btn-add">
           Add Campus
         </a>
       </button>
-    </div>
-    <div class="col-3">
-      <form class="d-flex justify-content-end" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </div>

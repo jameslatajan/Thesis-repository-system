@@ -13,6 +13,13 @@ class FacultyModel extends CI_Model
     }
     public function archivefaculty($id)
     {
+        
+        $query = $this->db->get_where('faculty_tb', ['faculty_id' => $id]);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $this->db->query("UPDATE `files_tb` SET `archive` = '1' WHERE `faculty_id`= '$row->faculty_id'");
+            }
+        }
         $this->db->query("UPDATE `faculty_tb` SET `archive` = '1' WHERE `faculty_id`= $id");
     }
     public function editfacultybyid($id)
@@ -24,5 +31,4 @@ class FacultyModel extends CI_Model
     {
         $this->db->update('faculty_tb', $data, ['faculty_id' => $id]);
     }
-
 }

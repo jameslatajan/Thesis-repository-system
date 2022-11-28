@@ -1,8 +1,28 @@
-<?php if ($this->session->flashdata('alert-primary')) : ?>
-    <div class="alert alert-primary" role="alert">
-        <?= $this->session->flashdata('alert-primary'); ?>
+<div class="row mt-2">
+  <div class="col-12">
+  <?php if($this->session->flashdata('alert-success')):?>
+    <div class="alert alert-success" role="alert">
+      <?= $this->session->flashdata('alert-success');?>
     </div>
-<?php endif ?>
+    <?php elseif($this->session->flashdata('alert-danger')):?>
+      <div class="alert alert-danger" role="alert">
+      <?= $this->session->flashdata('alert-danger');?>
+    </div>
+    <?php elseif($this->session->flashdata('alert-primary')):?>
+      <div class="alert alert-primary" role="alert">
+      <?= $this->session->flashdata('alert-primary');?>
+    </div>
+    <?php endif?>
+  </div>
+</div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
+    <li class="breadcrumb-item"><a href="<?php echo $_SERVER['HTTP_REFERER']?>">Faculty</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><?php echo $faculty->name?></li>
+  </ol>
+</nav>
 
 <div class="row d-flex justify-content-center">
     <div class="col-12">

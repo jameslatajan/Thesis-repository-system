@@ -12,37 +12,36 @@
     </div>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Faculty</li>
+  </ol>
+</nav>
+
 <div class="card">
     <div class="card-body d-flex">
         <div class="col-7 d-flex">
-
             <h4><?php echo $title ?></h4>
         </div>
-        <div class="col-2 d-flex justify-content-end">
+        <div class="col-5 d-flex justify-content-end">
             <button class="btn btn-success me-2">
                 <a href="<?php echo base_url('addfaculty/' . $campus . "/" . $department) ?>" class="btn-add">Add Faculty</a>
             </button>
         </div>
-        <div class="col-3">
-            <form class="d-flex justify-content-end" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
     </div>
 </div>
-
 <div class="row my-3">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table class="table">
+                <table class="table" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Faculty Name</th>
                             <th scope="col">Position</th>
-                            <th scope="col" colspan="2">Option</th>
+                            <th scope="col">Option</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +53,7 @@
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
                                     <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
+                                    <a href="<?php echo base_url('archivefaculty/'. $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

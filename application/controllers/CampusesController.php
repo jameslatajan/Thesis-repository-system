@@ -89,8 +89,11 @@ class CampusesController extends CI_Controller
 
 	public function archive($id)
 	{
-		$this->cmodel->archivecampus($id);
+		$data = array($this->cmodel->archivecampus($id));
+		print_r($data['campus_name']);
+		// $this->$this->cmodel->archivefaculty($data['campus_name']);
+		
 		$this->session->set_flashdata('alert-danger', 'Successfully Archived');
-		redirect(base_url());
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 }
