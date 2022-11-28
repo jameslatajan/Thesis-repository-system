@@ -1,16 +1,21 @@
 <div class="row">
-    <div class="col-12">
-        <?php if ($this->session->flashdata('alert-success')) : ?>
-            <div class="alert alert-success" role="alert">
-                <?= $this->session->flashdata('alert-success'); ?>
-            </div>
-        <?php elseif ($this->session->flashdata('alert-danger')) : ?>
-            <div class="alert alert-danger" role="alert">
-                <?= $this->session->flashdata('alert-danger'); ?>
-            </div>
-        <?php endif ?>
+  <div class="col-12">
+  <?php if($this->session->flashdata('alert-success')):?>
+    <div class="alert alert-success" role="alert">
+      <?= $this->session->flashdata('alert-success');?>
     </div>
+    <?php elseif($this->session->flashdata('alert-danger')):?>
+      <div class="alert alert-danger" role="alert">
+      <?= $this->session->flashdata('alert-danger');?>
+    </div>
+    <?php elseif($this->session->flashdata('alert-primary')):?>
+      <div class="alert alert-primary" role="alert">
+      <?= $this->session->flashdata('alert-primary');?>
+    </div>
+    <?php endif?>
+  </div>
 </div>
+
 
 <div class="card">
     <div class="card-body d-flex">
@@ -47,7 +52,7 @@
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
                                     <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <!-- <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a> -->
+                                    <a href="<?php echo base_url('archivefaculty/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

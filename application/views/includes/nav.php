@@ -41,7 +41,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="<?php echo base_url('search/author') ?>">Author</a></li>
                   <li><a class="dropdown-item" href="<?php echo base_url('search/faculty') ?>">Faculty</a></li>
-                  <li><a class="dropdown-item" href="<?php echo base_url('search/dateissued') ?>">Date Issued</a></li>
+                  <!-- <li><a class="dropdown-item" href="<?php echo base_url('search/dateissued') ?>">Date Issued</a></li> -->
                 </ul>
               </li>
               <li class="nav-item dropdown">

@@ -53,6 +53,7 @@ $route['default_controller'] = 'CampusesController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//campus
 $route['home'] = 'CampusesController/index';
 $route['addcampus'] ='CampusesController/addcampus';
 $route['addcampus/submit'] ='CampusesController/submit';
@@ -60,26 +61,35 @@ $route['campuses/edit/(:any)'] = 'CampusesController/edit/$1';
 $route['campuses/update/(:any)'] = 'CampusesController/update/$1';
 $route['campuses/archive/(:any)'] = 'CampusesController/archive/$1';
 
+//faculty
 $route['faculty/(:any)/(:any)'] = "FacultyController/index/$1/$2";
 $route['addfaculty/(:any)/(:any)'] = "FacultyController/addfaculty/$1/$2";
 $route['savefaculty/(:any)/(:any)'] = "FacultyController/savefaculty/$1/$2";
-$route['archivefaculty/(:any)/(:any)/(:any)'] = "FacultyController/archivefaculty/$1/$2/$3";
+$route['archivefaculty/(:any)'] = "FacultyController/archivefaculty/$1";
 $route['editfaculty/(:any)'] = 'FacultyController/editfaculty/$1';
 $route['updatefaculty/(:any)'] = 'FacultyController/updatefaculty/$1';
 $route['showfaculty/(:any)'] = 'FacultyController/showfaculty/$1';
 
+//documents
 $route['addfile/(:any)'] = 'DocumentController/addfile/$1';
 $route['addfile/insertfile/(:any)'] = 'DocumentController/insertfile/$1';
 $route['download/(:any)'] = 'DocumentController/downloadfile/$1';
 $route['editfile/(:any)'] = 'DocumentController/editfile/$1';
 $route['editfile/updatefile/(:any)'] = 'DocumentController/updatefile/$1';
 $route['deletefile/(:any)'] = 'DocumentController/deletefile/$1';
+$route['view/(:any)'] = 'DocumentController/filedetails/$1';
 
 //search by
 $route['search/author'] = 'SortController/searchbyauthor';
 $route['search/faculty'] = 'SortController/searchbyfaculty';
 $route['search/dateissued'] = 'SortController/searchdateissued';
+$route['editfiles/(:any)'] = 'SortController/editfiles/$1';
+$route['update/(:any)'] = 'SortController/updatefiles/$1';
 
 //archive
 $route['archive/campus'] = 'ArchiveController/campus';
 $route['archive/faculty'] = 'ArchiveController/faculty';
+
+//restore
+$route['restorecampus/(:any)'] = 'ArchiveController/restorecampus/$1';
+$route['restorefaculty/(:any)'] = 'ArchiveController/restorefaculty/$1';

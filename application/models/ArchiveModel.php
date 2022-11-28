@@ -19,5 +19,35 @@ class ArchiveModel extends CI_Model
     public function rfaculty($id){
         $this->db->query("UPDATE `faculty_tb` SET `archive` = '0' WHERE `faculty_id`= $id");
     }
+
+    public function restorecampus($id){
+        $query = $this->db->get_where('campuses_tb', ['campus_id' => $id]);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $this->db->query("UPDATE `faculty_tb` SET `archive` = '0' WHERE `campus_name`= '$row->campus_name'");
+                $query2 = $this->db->get_where('files_tb', ['campus_name' => $row->campus_name]);
+                if ($query2->num_rows() > 0) {
+                    foreach ($query2->result() as $row) {
+                        $this->db->query("UPDATE `files_tb` SET `archive` = '0' WHERE `faculty_id`= '$row->faculty_id'");
+                    }
+                }
+            }
+        } else {
+            printf('faculty do not exist');
+        }
+        $this->db->query("UPDATE `campuses_tb` SET `archive` = '0' WHERE `campus_id`= $id");
+    }
+    public function restorefaculty($id){
+
+       $query = $this->db->get_where('faculty_tb', ['faculty_id' => $id]);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $this->db->query("UPDATE `files_tb` SET `archive` = '0' WHERE `faculty_id`= '$row->faculty_id'");
+               
+            }
+        }
+        $this->db->query("UPDATE `faculty_tb` SET `archive` = '0' WHERE `faculty_id`= $id");
+
+    }
 }
 	

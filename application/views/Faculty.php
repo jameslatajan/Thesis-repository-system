@@ -12,6 +12,13 @@
     </div>
 </div>
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Faculty</li>
+  </ol>
+</nav>
+
 <div class="card">
     <div class="card-body d-flex">
         <div class="col-7 d-flex">
@@ -46,7 +53,7 @@
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
                                     <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <a href="<?php echo base_url('archivefaculty/' . $campus . "/" . $department . '/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
+                                    <a href="<?php echo base_url('archivefaculty/'. $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -1,4 +1,4 @@
-<div class="row d-flex my-4 justify-content-center">
+<div class="row d-flex justify-content-center my-3">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table" id="table_id">
+                <table class="table table-striped" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">Title</th>
@@ -29,12 +29,18 @@
                                 <td><?php echo $row->file ?></td>
                                 <td><?php echo $row->author ?></td>
                                 <td><?php echo $row->issue_date ?></td>
+
                                 <td>
                                     <a href="<?php echo base_url('download/' . $row->file_id) ?>" class="btn btn-primary">Download</a>
                                     <a href="<?php echo base_url('editfile/' . $row->file_id) ?>" class="btn btn-info">Edit</a>
                                     <a href="<?php echo base_url('deletefile/' . $row->file_id) ?>" class="btn btn-danger">Delete</a>
+                                    <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?php echo base_url('details/'.$row->file_id)?>"> -->
+                                    <a class="btn btn-primary" href="<?php echo base_url('view/'.$row->file_id )?>">
+                                        Show
+                                    </a>
                                 </td>
                             </tr>
+
                         <?php endforeach ?>
                     </tbody>
                 </table>

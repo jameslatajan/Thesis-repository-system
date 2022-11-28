@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="<?= base_url('editfile/updatefile/' . $file->file_id) ?>" method="post" enctype="multipart/form-data">
+                <form action="<?= base_url('update/' . $file->file_id) ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="faculty_id" value="<?php echo $file->faculty_id ?>">
                     <input type="hidden" name="campus_name" value="<?php echo $file->campus_name ?>">
                     <input type="hidden" name="department" value="<?php echo $file->department ?>">

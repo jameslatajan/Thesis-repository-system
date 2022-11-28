@@ -1,15 +1,19 @@
 <div class="row">
-    <div class="col-12">
-        <?php if ($this->session->flashdata('alert-success')) : ?>
-            <div class="alert alert-success" role="alert">
-                <?= $this->session->flashdata('alert-success'); ?>
-            </div>
-        <?php elseif ($this->session->flashdata('alert-danger')) : ?>
-            <div class="alert alert-danger" role="alert">
-                <?= $this->session->flashdata('alert-danger'); ?>
-            </div>
-        <?php endif ?>
+  <div class="col-12">
+  <?php if($this->session->flashdata('alert-success')):?>
+    <div class="alert alert-success" role="alert">
+      <?= $this->session->flashdata('alert-success');?>
     </div>
+    <?php elseif($this->session->flashdata('alert-danger')):?>
+      <div class="alert alert-danger" role="alert">
+      <?= $this->session->flashdata('alert-danger');?>
+    </div>
+    <?php elseif($this->session->flashdata('alert-primary')):?>
+      <div class="alert alert-primary" role="alert">
+      <?= $this->session->flashdata('alert-primary');?>
+    </div>
+    <?php endif?>
+  </div>
 </div>
 
 <div class="card">
@@ -50,8 +54,12 @@
                                 <td><?php echo $row->file ?></td>
                                 <td>
                                     <a href="<?php echo base_url('download/' . $row->file_id) ?>" class="btn btn-primary">Download</a>
-                                    <a href="<?php echo base_url('editfile/' . $row->file_id) ?>" class="btn btn-info">Edit</a>
+                                    <a href="<?php echo base_url('editfiles/' . $row->file_id) ?>" class="btn btn-info">Edit</a>
                                     <a href="<?php echo base_url('deletefile/' . $row->file_id) ?>" class="btn btn-danger">Delete</a>
+                                    <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?php echo base_url('details/'.$row->file_id)?>"> -->
+                                    <a class="btn btn-primary" href="<?php echo base_url('view/'.$row->file_id )?>">
+                                        Show
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

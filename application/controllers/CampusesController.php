@@ -94,6 +94,6 @@ class CampusesController extends CI_Controller
 		// $this->$this->cmodel->archivefaculty($data['campus_name']);
 		
 		$this->session->set_flashdata('alert-danger', 'Successfully Archived');
-		redirect(base_url());
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 }
