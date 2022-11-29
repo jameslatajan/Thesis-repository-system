@@ -1,19 +1,19 @@
 <div class="row">
-  <div class="col-12">
-  <?php if($this->session->flashdata('alert-success')):?>
-    <div class="alert alert-success" role="alert">
-      <?= $this->session->flashdata('alert-success');?>
+    <div class="col-12">
+        <?php if ($this->session->flashdata('alert-success')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= $this->session->flashdata('alert-success'); ?>
+            </div>
+        <?php elseif ($this->session->flashdata('alert-danger')) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $this->session->flashdata('alert-danger'); ?>
+            </div>
+        <?php elseif ($this->session->flashdata('alert-primary')) : ?>
+            <div class="alert alert-primary" role="alert">
+                <?= $this->session->flashdata('alert-primary'); ?>
+            </div>
+        <?php endif ?>
     </div>
-    <?php elseif($this->session->flashdata('alert-danger')):?>
-      <div class="alert alert-danger" role="alert">
-      <?= $this->session->flashdata('alert-danger');?>
-    </div>
-    <?php elseif($this->session->flashdata('alert-primary')):?>
-      <div class="alert alert-primary" role="alert">
-      <?= $this->session->flashdata('alert-primary');?>
-    </div>
-    <?php endif?>
-  </div>
 </div>
 
 
@@ -37,8 +37,11 @@
                 <table class="table table-striped" id="table_id">
                     <thead>
                         <tr id="facultytable ">
-                            <th scope="col">Program</th>
                             <th scope="col">Name</th>
+                            <th scope="col">Sex</th>
+                            <th scope="col">Birth Date</th>
+                            <th scope="col">Campus</th>
+                            <th scope="col">Program</th>
                             <th scope="col">Position</th>
                             <th scope="col">Option</th>
                         </tr>
@@ -46,8 +49,11 @@
                     <tbody>
                         <?php foreach ($faculty as $row) : ?>
                             <tr>
-                                <td><?php echo $row->faculty_name ?></td>
                                 <td><?php echo $row->name ?></td>
+                                <td><?php echo $row->sex ?></td>
+                                <td><?php echo $row->birth_date ?></td>
+                                <td><?php echo $row->campus_name ?></td>
+                                <td><?php echo $row->faculty_name ?></td>
                                 <td><?php echo $row->position ?></td>
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>

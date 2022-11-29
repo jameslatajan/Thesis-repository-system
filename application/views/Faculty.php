@@ -39,7 +39,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
-                            <th scope="col">Gender</th>
+                            <th scope="col">Sex</th>
                             <th scope="col">Program</th>
                             <th scope="col">Position</th>
                             <th scope="col">Option</th>
