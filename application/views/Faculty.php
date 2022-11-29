@@ -13,10 +13,10 @@
 </div>
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Faculty</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Faculty</li>
+    </ol>
 </nav>
 
 <div class="card">
@@ -39,6 +39,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
+                            <th scope="col">Gender</th>
                             <th scope="col">Faculty Name</th>
                             <th scope="col">Position</th>
                             <th scope="col">Option</th>
@@ -48,12 +49,13 @@
                         <?php foreach ($faculty as $row) : ?>
                             <tr>
                                 <td><?php echo $row->name ?></td>
+                                <td><?php echo $row->sex ?></td>
                                 <td><?php echo $row->faculty_name ?></td>
                                 <td><?php echo $row->position ?></td>
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
-                                    <!-- <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a> -->
-                                    <a href="<?php echo base_url('archivefaculty/'. $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
+                                    <a href="<?php echo base_url('editfaculty/' . $row->faculty_id) ?>" class="btn btn-primary">Edit</a>
+                                    <a href="<?php echo base_url('archivefaculty/' . $row->faculty_id) ?>" class="btn btn-danger">Archive</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

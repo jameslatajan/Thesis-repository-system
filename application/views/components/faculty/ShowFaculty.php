@@ -19,7 +19,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
-    <li class="breadcrumb-item"><a href="<?php echo $_SERVER['HTTP_REFERER']?>">Faculty</a></li>
+    <li class="breadcrumb-item"><a href="<?php echo base_url("faculty/".$faculty->campus_name.'/'.$faculty->department)?>">Faculty</a></li>
     <li class="breadcrumb-item active" aria-current="page"><?php echo $faculty->name?></li>
   </ol>
 </nav>
@@ -45,6 +45,10 @@
                                 <tr>
                                     <td>Faculty Name:</td>
                                     <td><?php echo $faculty->faculty_name ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Sex:</td>
+                                    <td><?php echo $faculty->sex ?></td>
                                 </tr>
                                 <tr>
                                     <td>Rank:</td>

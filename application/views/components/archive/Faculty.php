@@ -46,7 +46,7 @@
                                 <td>
                                     <a href="<?php echo base_url('showfaculty/' . $row->faculty_id) ?>" class="btn btn-info">Show</a>
                                     <a href="<?php echo base_url('restorefaculty/' .$row->faculty_id ) ?>" class="btn btn-success">Restore</a>
-                                    <a href="<?php echo base_url() ?>" class="btn btn-danger">Delete</a>
+                                    <a href="<?php echo base_url('delete/faculty/'.$row->faculty_id) ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

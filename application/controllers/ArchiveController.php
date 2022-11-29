@@ -39,4 +39,18 @@ class ArchiveController extends CI_Controller
         $this->session->set_flashdata('alert-success', 'Successfully Restored');
         redirect(base_url("archive/faculty"));
     }
+
+    public function deletecampus($id)
+    {
+        $this->amodel->deletecampus($id);
+        $this->session->set_flashdata('alert-danger', 'Successfully Deleted');
+        redirect(base_url("archive/campus"));
+    }
+
+    public function deletefaculty($id)
+    {
+        $this->amodel->deletefaculty($id);
+        $this->session->set_flashdata('alert-danger', 'Successfully Deleted');
+        redirect(base_url("archive/faculty"));
+    }
 }

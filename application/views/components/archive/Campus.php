@@ -50,7 +50,7 @@
             </div>
             <div class="col-6 d-flex justify-content-end">
               <a href="<?php echo base_url("restorecampus/".$row->campus_id) ?>" class="btn btn-success mx-1">Restore</a>
-              <a href="<?php echo base_url() ?>" class="btn btn-danger">Delete</a>
+              <a href="<?php echo base_url('delete/campus/'.$row->campus_id ) ?>" class="btn btn-danger">Delete</a>
             </div>
           </div>
           <table class="table">
