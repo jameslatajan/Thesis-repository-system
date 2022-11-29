@@ -63,7 +63,7 @@
             </div>
             <div class="col-6">
               <div class="mb-3">
-                <label for="" class="form-label">Faculty Name</label>
+                <label for="" class="form-label">Program</label>
                 <input type="text" name="faculty_name" class="form-control " id="" value="<?php echo set_value("faculty_name") ?>">
                 <small class="text-danger"><?php echo form_error('faculty_name'); ?></small>
               </div>

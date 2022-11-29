@@ -34,10 +34,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table class="table" id="table_id">
+                <table class="table table-striped" id="table_id">
                     <thead>
-                        <tr id="facultytable">
-                            <th scope="col">Faculty Name</th>
+                        <tr id="facultytable ">
+                            <th scope="col">Program</th>
                             <th scope="col">Name</th>
                             <th scope="col">Position</th>
                             <th scope="col">Option</th>

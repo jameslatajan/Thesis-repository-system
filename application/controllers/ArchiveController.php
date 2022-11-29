@@ -6,6 +6,7 @@ class ArchiveController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('ArchiveModel', 'amodel');
+        $this->load->model('CampusesModel', 'cmodel');
         $this->load->library('session');
     }
     public function campus()
@@ -42,6 +43,14 @@ class ArchiveController extends CI_Controller
 
     public function deletecampus($id)
     {
+        $data =  $this->amodel->deletefilebycampus($id);
+        
+        foreach($data as $row){
+            $filename = $row->file;
+            if (file_exists("./uploads/documents/".$filename)) {
+                unlink("./uploads/documents/" . $filename);
+            }
+        }
         $this->amodel->deletecampus($id);
         $this->session->set_flashdata('alert-danger', 'Successfully Deleted');
         redirect(base_url("archive/campus"));
@@ -49,6 +58,17 @@ class ArchiveController extends CI_Controller
 
     public function deletefaculty($id)
     {
+
+        $data =  $this->amodel->deletfilebyfaculty($id);
+        // print_r($data);
+
+        foreach($data as $row){
+            $filename = $row->file;
+            if (file_exists("./uploads/documents/".$filename)) {
+                unlink("./uploads/documents/" . $filename);
+                // print('yes');
+            }
+        }
         $this->amodel->deletefaculty($id);
         $this->session->set_flashdata('alert-danger', 'Successfully Deleted');
         redirect(base_url("archive/faculty"));

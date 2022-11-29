@@ -85,4 +85,27 @@ class ArchiveModel extends CI_Model
         }
         $this->db->delete('faculty_tb', array('faculty_id' => $id));
     }
+
+    public function deletefilebycampus($id)
+    {
+        $query2="";
+        $query = $this->db->get_where('campuses_tb', ['campus_id' => $id]);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $query2 = $this->db->get_where('files_tb', array('campus_name' => $row->campus_name));
+               
+            }
+        }
+        return $query2->result();
+    }
+    public function deletfilebyfaculty($id){
+        $query2="";
+        $query = $this->db->get_where('faculty_tb', ['faculty_id' => $id]);
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $query2 = $this->db->get_where('files_tb', array('faculty_id' => $row->faculty_id));
+            }
+        }
+        return $query2->result();
+    }
 }

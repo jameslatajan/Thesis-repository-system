@@ -40,10 +40,16 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <table class="table table-faculty">
+                        <table class="table table-faculty table-striped">
+                            <thead>
+                                <tr>
+                                    <td>data</td>
+                                    <td>data</td>
+                                </tr>
+                            </thead>
                             <tbody>
                                 <tr>
-                                    <td>Faculty Name:</td>
+                                    <td>Program:</td>
                                     <td><?php echo $faculty->faculty_name ?></td>
                                 </tr>
                                 <tr>
