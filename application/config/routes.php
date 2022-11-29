@@ -93,3 +93,7 @@ $route['archive/faculty'] = 'ArchiveController/faculty';
 //restore
 $route['restorecampus/(:any)'] = 'ArchiveController/restorecampus/$1';
 $route['restorefaculty/(:any)'] = 'ArchiveController/restorefaculty/$1';
+
+//delete
+$route['delete/campus/(:any)'] = 'ArchiveController/deletecampus/$1';
+$route['delete/faculty/(:any)'] = 'ArchiveController/deletefaculty/$1';

@@ -27,18 +27,31 @@
           <div class="row">
             <div class="col-6">
               <div class="mb-3">
+                <label for="" class="form-label">Sex</label>
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                  <select class="form-select" id="inputGroupSelect01" name="sex">
+                    <!-- <option selected>Choose</option> -->
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <small class="text-danger"><?php echo form_error('sex'); ?></small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
                 <label for="" class="form-label">Birth Date</label>
                 <input type="date" name="birth_date" class="form-control " id="" value="<?php echo set_value("birth_date") ?>">
                 <small class="text-danger"><?php echo form_error('birth_date'); ?></small>
               </div>
             </div>
-            <div class="col-6">
-              <div class="mb-3">
-                <label for="" class="form-label">Address</label>
-                <input type="text" name="address" class="form-control " id="" value="<?php echo set_value("address") ?>">
-                <small class="text-danger"><?php echo form_error('address'); ?></small>
-              </div>
-            </div>
+
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Address</label>
+            <input type="text" name="address" class="form-control " id="" value="<?php echo set_value("address") ?>">
+            <small class="text-danger"><?php echo form_error('address'); ?></small>
           </div>
           <div class="row">
             <div class="col-6">
@@ -50,7 +63,7 @@
             </div>
             <div class="col-6">
               <div class="mb-3">
-                <label for="" class="form-label">Faculty Name</label>
+                <label for="" class="form-label">Program</label>
                 <input type="text" name="faculty_name" class="form-control " id="" value="<?php echo set_value("faculty_name") ?>">
                 <small class="text-danger"><?php echo form_error('faculty_name'); ?></small>
               </div>

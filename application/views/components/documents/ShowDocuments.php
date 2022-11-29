@@ -36,7 +36,7 @@
                                     <a href="<?php echo base_url('deletefile/' . $row->file_id) ?>" class="btn btn-danger">Delete</a>
                                     <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?php echo base_url('details/'.$row->file_id)?>"> -->
                                     <a class="btn btn-primary" href="<?php echo base_url('view/'.$row->file_id )?>">
-                                        Show
+                                        Details
                                     </a>
                                 </td>
                             </tr>

@@ -35,7 +35,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <table class="table" id="table_id">
+                <table class="table table-striped" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">Issued Date</th>

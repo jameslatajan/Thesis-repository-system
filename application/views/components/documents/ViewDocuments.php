@@ -2,7 +2,7 @@
     <div class="col-8">
         <div class="card">
             <div class="card-body">
-                <table class="table">
+                <table class="table table-striped">
                     <!-- <thead>
                         <tr>
                             <th scope="col">#</th>
