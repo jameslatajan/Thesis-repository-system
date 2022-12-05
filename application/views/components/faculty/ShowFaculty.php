@@ -19,7 +19,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="<?php echo base_url()?>">Home</a></li>
-    <li class="breadcrumb-item"><a href="<?php echo base_url("faculty/".$faculty->campus_name.'/'.$faculty->department)?>">Faculty</a></li>
+    <li class="breadcrumb-item"><a href="<?php echo base_url("faculty/".$faculty->campus_name.'/'.$faculty->department)?>">Department</a></li>
     <li class="breadcrumb-item active" aria-current="page"><?php echo $faculty->name?></li>
   </ol>
 </nav>
