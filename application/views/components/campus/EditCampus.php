@@ -7,7 +7,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col-6">
-            <h5 class="">EditCampus</h5>
+            <h5 class="">Edit Campus</h5>
           </div>
           <div class="col-6 d-flex justify-content-end">
             <a class="btn btn-danger" href="<?= base_url() ?>">Cancel </a>

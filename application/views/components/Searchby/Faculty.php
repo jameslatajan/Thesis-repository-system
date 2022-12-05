@@ -38,8 +38,8 @@
                     <thead>
                         <tr id="facultytable ">
                             <th scope="col">Name</th>
-                            <th scope="col">Sex</th>
-                            <th scope="col">Birth Date</th>
+                            <!-- <th scope="col">Sex</th> -->
+                            <!-- <th scope="col">Birth Date</th> -->
                             <th scope="col">Campus</th>
                             <th scope="col">Program</th>
                             <th scope="col">Position</th>
@@ -50,8 +50,8 @@
                         <?php foreach ($faculty as $row) : ?>
                             <tr>
                                 <td><?php echo $row->name ?></td>
-                                <td><?php echo $row->sex ?></td>
-                                <td><?php echo $row->birth_date ?></td>
+                                <!-- <td><?php echo $row->sex ?></td> -->
+                                <!-- <td><?php echo $row->birth_date ?></td> -->
                                 <td><?php echo $row->campus_name ?></td>
                                 <td><?php echo $row->faculty_name ?></td>
                                 <td><?php echo $row->position ?></td>

@@ -12,7 +12,7 @@ class CampusesController extends CI_Controller
 	public function index()
 	{
 		$data['campus'] = $this->cmodel->getcampus();
-
+	
 		$this->load->view('includes/nav');
 		$this->load->view('Home', $data);
 		$this->load->view('includes/foot');
