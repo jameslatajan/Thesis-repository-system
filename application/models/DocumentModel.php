@@ -38,9 +38,7 @@ class DocumentModel extends CI_Model
     }
     public function deletefile($id)
     {
-
-       return $this->db->query("DELETE FROM `files_tb` WHERE  `file_id`= '$id'");
-        // return $query->row_array();
+        return $this->db->query("DELETE FROM `files_tb` WHERE  `file_id`= '$id'");
     }
     public function filedetails($id)
     {

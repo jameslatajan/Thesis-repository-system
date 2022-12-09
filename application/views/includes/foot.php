@@ -16,7 +16,10 @@
             dom: 'Bfrtip',
             buttons: [
                 'copy', 'csv', 'excel', 'pdf'
-            ]
+            ],
+            // scrollX: true,
+            // scrollCollapse: true,
+            // fixedColumns: true
         });
     });
 </script>

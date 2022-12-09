@@ -1,14 +1,23 @@
 <div class="row d-flex justify-content-center">
     <div class="col-8">
-        <div class="card">
+        <?php if ($this->session->flashdata('alert-file')) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $this->session->flashdata('alert-file'); ?>
+            </div>
+        <?php endif ?>
+    </div>
+</div>
 
+<div class="row d-flex justify-content-center">
+    <div class="col-8">
+        <div class="card">
             <div class="card-header">
                 <div class="row">
                     <div class="col-6">
                         <h5 class="">Edit Documents</h5>
                     </div>
                     <div class="col-6 d-flex justify-content-end">
-                        <a href="<?php echo $_SERVER['HTTP_REFERER']?>" class="btn btn-danger">Cancel</a>
+                        <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +52,7 @@
                         <small class="text-danger"><?php echo form_error('issue_date'); ?></small>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="customFile">Insert File Here</label>
+                        <label class="form-label" for="customFile">Insert File Here. Format: PDF|JPEG|JPG|PNG</label>
                         <input type="file" class="form-control" id="customFile" name="file" />
                     </div>
                     <button type="submit" class="btn btn-primary">Upadate</button>

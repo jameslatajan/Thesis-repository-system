@@ -40,13 +40,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <table class="table table-faculty table-striped">
-                            <thead>
-                                <tr>
-                                    <td>data</td>
-                                    <td>data</td>
-                                </tr>
-                            </thead>
+                        <table class="table table-striped" id="table_id2">
                             <tbody>
                                 <tr>
                                     <td>Program:</td>

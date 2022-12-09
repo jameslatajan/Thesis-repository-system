@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-3">
-                                <label class="form-label" for="customFile">Insert File Here</label>
+                                <label class="form-label" for="customFile">Insert File Here. Format: PDF|JPEG|JPG|PNG</label>
                                 <input type="file" class="form-control" id="customFile" name="file" value="<?php echo set_value("file") ?>" />
                             </div>
                         </div>
