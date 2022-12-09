@@ -19,7 +19,7 @@ class FacultyController extends CI_Controller
         } elseif ($department == 'cas') {
             $data['title'] = "College of Arts and Sciences Faculty";
         } elseif ($department == 'cte') {
-            $data['title'] = "College of Teching Education Faculty";
+            $data['title'] = "College of Teacher Education Faculty";
         } elseif ($department == 'cot') {
             $data['title'] = "College of Technology Faculty";
         } else {
