@@ -32,7 +32,8 @@ class DocumentController extends CI_Controller
             if ($this->form_validation->run()) {
 
                 $config['upload_path']          = './uploads/documents';
-                $config['allowed_types']        = 'gif|jpg|png|pdf|doc';
+                $config['allowed_types']        = 'gif|jpg|png|pdf';
+                $config['encrypt_name']         = TRUE;
 
                 $this->load->library('upload', $config);
 
@@ -80,32 +81,38 @@ class DocumentController extends CI_Controller
     }
     public function updatefile($id)
     {
-
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('author', 'Author', 'required');
             $this->form_validation->set_rules('abstract', 'Abstract', 'required');
             $this->form_validation->set_rules('issue_date', 'Date issued', 'required');
-            // $this->form_validation->set_rules('file', 'File', 'required');
             $fid = $this->input->post('faculty_id');
 
             $old_file = $this->input->post('old_file');
             $new_file = $_FILES['file']['name'];
-            $update_file = '';
+            $update_file = "";
 
             if ($this->form_validation->run()) {
                 if ($new_file == TRUE) {
+
                     $update_file = $new_file;
+
                     $config['upload_path']          = './uploads/documents';
-                    $config['allowed_types']        = 'gif|jpg|png';
+                    $config['allowed_types']        = 'gif|jpg|png|pdf';
+                    $config['encrypt_name']         = TRUE;
 
                     $this->load->library('upload', $config);
 
-                    if ($this->upload->do_upload($update_file)) {
+                    if ($this->upload->do_upload('file')) {
                         if (file_exists("./uploads/documents/" . $old_file)) {
                             unlink("./uploads/documents/" . $old_file);
                         }
+                    } else {
+                        $error = $this->upload->display_errors('<p class="my-0">', '</p>');
+                        $this->session->set_flashdata('alert-file', $error);
+                        return $this->editfile($id);
                     }
+                    $update_file = $this->upload->data('file_name');
                 } else {
                     $update_file = $old_file;
                 }
@@ -113,10 +120,6 @@ class DocumentController extends CI_Controller
                 // print_r($update_file);
 
                 $capsule = [
-                    // 'faculty_id' => $this->input->post('faculty_id'),
-                    // 'campus_name' => $this->input->post('campus_name'),
-                    // 'department' => $this->input->post('department'),
-                    // 'faculty_name' => $this->input->post('faculty_name'),
                     'title' => $this->input->post('title'),
                     'author' => $this->input->post('author'),
                     'abstract' => $this->input->post('abstract'),
@@ -156,7 +159,7 @@ class DocumentController extends CI_Controller
             $filename = $row->file;
         }
 
-        if (file_exists("./uploads/documents/".$filename)) {
+        if (file_exists("./uploads/documents/" . $filename)) {
             unlink("./uploads/documents/" . $filename);
         }
         $this->session->set_flashdata('alert-danger', 'Deleted Successfully');

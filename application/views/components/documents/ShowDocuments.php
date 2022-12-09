@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table table-striped" id="table_id">
+                <table class="table table-striped table-faculty" id="table_id">
                     <thead>
                         <tr>
                             <th scope="col">Title</th>
@@ -25,19 +25,20 @@
                     <tbody>
                         <?php foreach ($files as $row) : ?>
                             <tr>
-                                <td><?php echo $row->title ?></td>
+                                <td class="text-wrap"><?php echo $row->title ?></td>
                                 <td><?php echo $row->file ?></td>
-                                <td><?php echo $row->author ?></td>
+                                <td class="text-wrap"><?php echo $row->author ?></td>
                                 <td><?php echo $row->issue_date ?></td>
 
                                 <td>
+                                    <a class="btn btn-primary" href="<?php echo base_url('view/' . $row->file_id) ?>">
+                                        Details
+                                    </a>
                                     <a href="<?php echo base_url('download/' . $row->file_id) ?>" class="btn btn-primary">Download</a>
                                     <a href="<?php echo base_url('editfile/' . $row->file_id) ?>" class="btn btn-info">Edit</a>
                                     <a href="<?php echo base_url('deletefile/' . $row->file_id) ?>" class="btn btn-danger">Delete</a>
-                                    <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?php echo base_url('details/'.$row->file_id)?>"> -->
-                                    <a class="btn btn-primary" href="<?php echo base_url('view/'.$row->file_id )?>">
-                                        Details
-                                    </a>
+                                    <!-- <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" href="<?php echo base_url('details/' . $row->file_id) ?>"> -->
+
                                 </td>
                             </tr>
 

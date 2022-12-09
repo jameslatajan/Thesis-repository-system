@@ -64,3 +64,12 @@ body{
   width: 100% !important;
   /* border: none !important; */
 }
+
+th, td { white-space: nowrap; }
+div.table-row  {
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+

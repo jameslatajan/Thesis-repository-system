@@ -30,6 +30,15 @@ class FacultyController extends CI_Controller
         $data['campus'] = $campus;
         $data['department'] = $department;
 
+        $data['files'] = array();
+        foreach ($data['faculty'] as $row) {
+            array_push( $data['files'],$this->fmodel->numOfFiles($row->faculty_id));
+            
+        }
+
+        // print_r($data['files']);
+
+
         $this->load->view('includes/nav');
         $this->load->view('/Faculty', $data);
         $this->load->view('includes/foot');
@@ -132,7 +141,6 @@ class FacultyController extends CI_Controller
 
     public function showfaculty($id)
     {
-
         //retrieving files
         $data['files'] = $this->dmodel->getfiles($id);
         $data['faculty'] = $this->fmodel->editfacultybyid($id);
